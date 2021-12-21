@@ -1,12 +1,12 @@
 package com.transferscheduling.services;
 
 import java.util.List;
-
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.transferscheduling.domain.Agenda;
 import com.transferscheduling.repositories.AgendaRepository;
-	
+//http://localhost:8082/agenda
 @Service
 public class AgendaServiceImpl implements AgendaService {
 	
@@ -22,10 +22,18 @@ public class AgendaServiceImpl implements AgendaService {
 	}
 
 	@Override
-	public Integer agendar(Agenda agenda) {
+	public Agenda agendar(Agenda agenda) {
 		
-		agendaRepository.save(agenda);
-		return null;
+		return agendaRepository.save(agenda);
+	
+	}
+
+	@Override
+	public Agenda obter(Integer id) {
+
+		Optional<Agenda> categoria = agendaRepository.findById(id);
+
+		return categoria.orElse(new Agenda());
 	}
 	
 	

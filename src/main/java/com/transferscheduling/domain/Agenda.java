@@ -2,11 +2,11 @@ package com.transferscheduling.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 @Entity
 public class Agenda implements Serializable {
 	
@@ -14,13 +14,69 @@ public class Agenda implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	public Integer Id;
+	private Integer id;
 	
-    public String ContaOrigem;
+	private String contaOrigem;
     
-    public String ContaDestino;
+	private String contaDestino;
     
-    public Float Valor;
+	private Float valor;
     
-    public LocalDate DataTransferencia;
+	private LocalDate dataTransferencia;
+    
+	private LocalDate dataAgendamento;
+
+	public Agenda() {
+		super();
+		this.dataAgendamento = LocalDate.now();
+	}
+
+	public String getContaOrigem() {
+		return contaOrigem;
+	}
+
+	public void setContaOrigem(String contaOrigem) {
+		contaOrigem = contaOrigem;
+	}
+
+	public String getContaDestino() {
+		return contaDestino;
+	}
+
+	public void setContaDestino(String contaDestino) {
+		contaDestino = contaDestino;
+	}
+
+	public Float getValor() {
+		return valor;
+	}
+
+	public void setValor(Float valor) {
+		valor = valor;
+	}
+
+	public LocalDate getDataTransferencia() {
+		return dataTransferencia;
+	}
+
+	public void setDataTransferencia(LocalDate dataTransferencia) {
+		dataTransferencia = dataTransferencia;
+	}
+
+	public LocalDate getDataAgendamento() {
+		return dataAgendamento;
+	}
+
+	public void setDataAgendamento(LocalDate dataAgendamento) {
+		dataAgendamento = dataAgendamento;
+	}
+	
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
 }
