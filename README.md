@@ -1,4 +1,4 @@
-Decisões arquiteturais:
+<b>Decisões arquiteturais</b>:
 
   Projeto baseado nas referencias do livro clean architecture do Robert Cecil Martin.
 
