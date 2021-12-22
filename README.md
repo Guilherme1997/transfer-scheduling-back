@@ -9,7 +9,7 @@
   Temos nossa camada de repositories, no qual sua responsabilidade é de fazer acesso a dados.
   Utilizamos o solid como base para codificação.
 
-<img width="100" src="https://codersopinion.com/images/posts/clean-architecture/clean-architecture.png" alt="alternatetext">
+<img width="900" src="https://codersopinion.com/images/posts/clean-architecture/clean-architecture.png" alt="alternatetext">
 
 
 <b>Versões de linguagem</b>:
