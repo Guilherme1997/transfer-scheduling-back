@@ -10,11 +10,11 @@
   Utilizamos o solid como base para codificação.
 
 
-Versões de linguagem:
+<b>Versões de linguagem</b>:
 
   Java 11.
 
-Ferramentas utilizadas:
+<b>VFerramentas utilizadas</b>::
 
   Banco em memória: h2database
   
@@ -26,7 +26,7 @@ Ferramentas utilizadas:
   
   Apache Maven 3.6.0
 
-Instruções para a subida do projeto:
+<b>Instruções para a subida do projeto</b>:
 
 Realizar a instalação do Apache Maven 3.6.0. ( https://maven.apache.org/install.html )
 
