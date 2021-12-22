@@ -42,6 +42,7 @@ public class AgendaServiceImpl implements AgendaService {
 		}
 	}
 	
+	
 	private void calcularTaxaOperacaoTipoB(Agenda agenda) {
 		agenda.setTaxa((float) 12);
 	}
