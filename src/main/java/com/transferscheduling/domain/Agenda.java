@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Agenda implements Serializable {
 	
@@ -15,28 +17,45 @@ public class Agenda implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-	
+    @JsonProperty("contaOrigem")
+
 	private String contaOrigem;
     
+    @JsonProperty("contaDestino")
 	private String contaDestino;
     
+    @JsonProperty("valor")
 	private Float valor;
     
+	private Float taxa;
+
+    
+    @JsonProperty("dataTransferencia")
 	private LocalDate dataTransferencia;
     
 	private LocalDate dataAgendamento;
+
 
 	public Agenda() {
 		super();
 		this.dataAgendamento = LocalDate.now();
 	}
 
+	public Float getTaxa() {
+		return this.taxa;
+	}
+
+	public void setTaxa(Float taxa) {
+		this.taxa = taxa;
+	}
+
+	
 	public String getContaOrigem() {
 		return contaOrigem;
 	}
 
 	public void setContaOrigem(String contaOrigem) {
-		contaOrigem = contaOrigem;
+		this.contaOrigem = contaOrigem;
 	}
 
 	public String getContaDestino() {
@@ -44,7 +63,7 @@ public class Agenda implements Serializable {
 	}
 
 	public void setContaDestino(String contaDestino) {
-		contaDestino = contaDestino;
+		this.contaDestino = contaDestino;
 	}
 
 	public Float getValor() {
@@ -52,7 +71,7 @@ public class Agenda implements Serializable {
 	}
 
 	public void setValor(Float valor) {
-		valor = valor;
+		this.valor = valor;
 	}
 
 	public LocalDate getDataTransferencia() {
@@ -60,7 +79,7 @@ public class Agenda implements Serializable {
 	}
 
 	public void setDataTransferencia(LocalDate dataTransferencia) {
-		dataTransferencia = dataTransferencia;
+		this.dataTransferencia = dataTransferencia;
 	}
 
 	public LocalDate getDataAgendamento() {
@@ -68,7 +87,7 @@ public class Agenda implements Serializable {
 	}
 
 	public void setDataAgendamento(LocalDate dataAgendamento) {
-		dataAgendamento = dataAgendamento;
+		this.dataAgendamento = dataAgendamento;
 	}
 	
 	
