@@ -30,9 +30,9 @@
 
 <b>Instruções para a subida do projeto</b>:
 
-Realizar a instalação do Apache Maven 3.6.0. ( https://maven.apache.org/install.html )
+Realizar a instalação do Apache Maven 3.6.0. (https://maven.apache.org/install.html)
 
-Realizar a instalação do Java 11. ( https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html )
+Realizar a instalação do Java 11. (https://www.oracle.com/br/java/technologies/javase/jdk11-archive-downloads.html)
 
 Na raíz do projeto, onde se localiza o arquivo pom.xml, baixar as dependencias do projeto, através do comando mvn install.
 
