@@ -1,10 +1,13 @@
 package com.transferscheduling.services;
 
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.transferscheduling.domain.Agenda;
 import com.transferscheduling.repositories.AgendaRepository;
 
@@ -33,7 +36,9 @@ public class AgendaServiceImpl implements AgendaService {
 		
 		var porcentagem = (3 * agenda.getValor()) / 100;
 		
-		agenda.setTaxa(taxa + porcentagem );
+		var valor = taxa + porcentagem;
+		
+		agenda.setTaxa( Math.round(  valor *100) / 100.0 );
 	}
 	
 	private void OperacaoTipoB(Agenda agenda) {
@@ -44,8 +49,9 @@ public class AgendaServiceImpl implements AgendaService {
 	
 	
 	private void calcularTaxaOperacaoTipoB(Agenda agenda) {
-		agenda.setTaxa((float) 12);
+		agenda.setTaxa( 12.00);
 	}
+	
 	
 	private boolean obterRangeOperacaoB(Agenda agenda) {
 		
@@ -65,18 +71,18 @@ public class AgendaServiceImpl implements AgendaService {
 	private void operacaoTipoC(Agenda agenda) {
 
 		if(agenda.getDataTransferencia().isAfter(LocalDate.now().plusDays(10))) {
-			agenda.setTaxa( (float) (8.2 * agenda.getValor()) / 100);
+			agenda.setTaxa(  (8.2 * agenda.getValor()) / 100);
 		}
 		
 		if(agenda.getDataTransferencia().isAfter(LocalDate.now().plusDays(20))) {
-			agenda.setTaxa( (float) (6.9 * agenda.getValor()) / 100);
+			agenda.setTaxa(  (6.9 * agenda.getValor()) / 100);
 		}
 		
 		if(agenda.getDataTransferencia().isAfter(LocalDate.now().plusDays(30))) {
-			agenda.setTaxa( (float) (4.7 * agenda.getValor()) / 100);
+			agenda.setTaxa( (4.7 * agenda.getValor()) / 100);
 		}
 		if(agenda.getDataTransferencia().isAfter(LocalDate.now().plusDays(40))) {
-			agenda.setTaxa( (float) (1.7 * agenda.getValor()) / 100);
+			agenda.setTaxa(  (1.7 * agenda.getValor()) / 100);
 		}
 	}
 	
@@ -106,8 +112,11 @@ public class AgendaServiceImpl implements AgendaService {
 			OperacaoTipoB(agenda);
 			
 			operacaoTipoC(agenda);
+			
+			agenda.setTaxa( Math.round(agenda.getTaxa()*100) / 100.0 );
+
 		}
-		
+				
 		return agendaRepository.save(agenda);
 	
 	}

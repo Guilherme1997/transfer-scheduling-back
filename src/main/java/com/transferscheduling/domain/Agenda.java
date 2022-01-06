@@ -2,13 +2,16 @@ package com.transferscheduling.domain;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
+import org.springframework.validation.annotation.Validated;
+@Validated
 @Entity
 public class Agenda implements Serializable {
 	
@@ -17,20 +20,18 @@ public class Agenda implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
-    @JsonProperty("contaOrigem")
+	
+	@NotNull(message = "Campo obrigatório")
 
 	private String contaOrigem;
     
-    @JsonProperty("contaDestino")
 	private String contaDestino;
-    
-    @JsonProperty("valor")
+	
 	private Float valor;
     
-	private Float taxa;
+	private Double taxa;
 
     
-    @JsonProperty("dataTransferencia")
 	private LocalDate dataTransferencia;
     
 	private LocalDate dataAgendamento;
@@ -41,11 +42,11 @@ public class Agenda implements Serializable {
 		this.dataAgendamento = LocalDate.now();
 	}
 
-	public Float getTaxa() {
+	public Double getTaxa() {
 		return this.taxa;
 	}
 
-	public void setTaxa(Float taxa) {
+	public void setTaxa(Double taxa) {
 		this.taxa = taxa;
 	}
 
