@@ -29,8 +29,6 @@ public class AgendaController {
 	@RequestMapping(method = RequestMethod.GET)
 	public ResponseEntity<List<Agenda>> listar() 
 	{
-		String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
-		System.out.println(cars[10]);
 		
 		return ResponseEntity.ok(agendaService.listar());
 	}
